@@ -60,25 +60,32 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataLogic\ReadWrite.cs" />
     <Compile Include="DetailsWindow.xaml.cs">
       <DependentUpon>DetailsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Logic\Machine.cs" />
-    <Compile Include="Logic\MachineCatalogue.cs" />
+    <Compile Include="Entities\Machine.cs" />
+    <Compile Include="Entities\MachineCatalogue.cs" />
     <Compile Include="Pages\AddPage.xaml.cs">
       <DependentUpon>AddPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\CataloguePage.xaml.cs">
       <DependentUpon>CataloguePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\IView.cs" />
     <Compile Include="Pages\OptionPage.xaml.cs">
       <DependentUpon>OptionPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ValueConverter\AppPageValueConverter.cs" />
-    <Compile Include="ValueConverter\MachineCatalogueValueConverter.cs" />
-    <Compile Include="ValueConverter\MachineValueConverter.cs" />
-    <Compile Include="ValueConverter\BaseValueConverter.cs" />
+    <Compile Include="Properties\ValueConverter\AppPageValueConverter.cs" />
+    <Compile Include="Properties\ValueConverter\MachineCatalogueValueConverter.cs" />
+    <Compile Include="Properties\ValueConverter\MachineValueConverter.cs" />
+    <Compile Include="Properties\ValueConverter\BaseValueConverter.cs" />
+    <Compile Include="ViewModel\CatalogueViewModel.cs" />
+    <Compile Include="ViewModel\LoginPageViewModel.cs" />
+    <Compile Include="ViewModel\OptionPageViewModel.cs" />
     <Compile Include="ViewModel\base\BaseViewModel.cs" />
+    <Compile Include="ViewModel\AddPageViewModel.cs" />
+    <Compile Include="ViewModel\base\RelayCommand.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
     <Page Include="DetailsWindow.xaml">
       <SubType>Designer</SubType>

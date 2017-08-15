@@ -18,11 +18,14 @@ namespace Supportsystem
     /// <summary>
     /// Interaction logic for AddPage.xaml
     /// </summary>
-    public partial class AddPage : Page
+    public partial class AddPage : Page,IView
     {
         public AddPage()
         {
             InitializeComponent();
+
+            new AddPageViewModel(this);
         }
+
     }
 }

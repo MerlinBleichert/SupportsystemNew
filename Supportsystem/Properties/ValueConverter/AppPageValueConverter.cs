@@ -12,16 +12,19 @@ namespace Supportsystem
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            IView view;
+
             switch ((AppPage)value)
             {
+
                 case AppPage.Login:
-                    return new LoginPage();
+                    return view = new LoginPage();
                 case AppPage.Options:
-                    return new OptionPage();
+                    return view = new OptionPage();
                 case AppPage.Catalogue:
-                    return new CataloguePage();
+                    return view = new CataloguePage();
                 case AppPage.AddMachine:
-                    return new AddPage();
+                    return view = new AddPage();
 
 
                 default:

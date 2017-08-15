@@ -18,7 +18,7 @@ namespace Supportsystem
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window,IView
     {
 
         private WindowViewModel WVM;
@@ -27,23 +27,19 @@ namespace Supportsystem
         {
             InitializeComponent();
 
-            WVM = new WindowViewModel();
-
-            this.DataContext = WVM;
+            WVM = new WindowViewModel(this);
 
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.SetPage(AppPage.Login);
-
-  
+            SetPage(AppPage.Login);
 
         }
 
         public void SetPage(AppPage page)
         {
-            this.WVM.CurrentPage = page;
+           WVM.CurrentPage = page;
         }
     }
 }

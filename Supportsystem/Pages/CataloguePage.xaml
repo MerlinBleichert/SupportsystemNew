@@ -15,7 +15,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <DataGrid ItemsSource="{Binding Machines}"
+            <DataGrid ItemsSource="{Binding Machines , Converter={local:MachineCatalogueValueConverter}}"
                       AutoGenerateColumns="False"
                       Grid.Row="0">
                 <DataGrid.Columns>
@@ -35,8 +35,8 @@
 
             <Grid Grid.Row="1"
                   Margin="15">
-                <Button Content="Hinzufügen" Click="Button_Click" HorizontalAlignment="Left" />
-                <Button Content="Beenden" HorizontalAlignment="Right" Margin="150,0,0,0"/>
+                <Button Content="Hinzufügen" Command="{Binding AddPageCommand}" HorizontalAlignment="Left" />
+                <Button Content="Beenden" Command="{Binding ExitCommand}" HorizontalAlignment="Right" Margin="150,0,0,0"/>
             </Grid>
         </Grid>
     </Border>

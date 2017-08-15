@@ -27,7 +27,7 @@
                             <TextBox/>
                             <TextBlock Text="Passwort"/>
                             <TextBox/>
-                            <Button Content="Login" Click="Button_Click" Margin="0,20, 0, 0"/>
+                            <Button Content="Login" Command="{Binding OptionPageCommand}" Margin="0,20, 0, 0"/>
 
                         </StackPanel>
                         

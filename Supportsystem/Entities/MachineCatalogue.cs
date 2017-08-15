@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Supportsystem
 {
+
+    [Serializable]
     public class MachineCatalogue
     {
 
@@ -15,18 +17,16 @@ namespace Supportsystem
 
         public List<Machine> Machines { get => machines; set => machines = value; }
 
-        public Boolean AddMachine(Machine machine)
+        public void AddMachine(Machine machine)
         {
             if(Machines == null)
             {
                 Machines = new List<Machine>();
                 Machines.Add(machine);
-                return true;
             }
             else
             {
                 Machines.Add(machine);
-                return true;
             }
         }
     }

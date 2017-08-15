@@ -5,23 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Navigation;
 
 namespace Supportsystem
 {
     /// <summary>
     /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class LoginPage : Page,IView
     {
         public LoginPage()
         {
             InitializeComponent();
+            new LoginPageViewModel(this);
 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           ((MainWindow)(Application.Current.MainWindow)).SetPage(AppPage.Options);
         }
     }
 }

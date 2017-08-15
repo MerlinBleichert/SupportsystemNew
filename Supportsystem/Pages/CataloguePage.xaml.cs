@@ -18,29 +18,15 @@ namespace Supportsystem
     /// <summary>
     /// Interaction logic for CataloguePage.xaml
     /// </summary>
-    public partial class CataloguePage : Page
+    public partial class CataloguePage : Page,IView
     {
-
-        private WindowViewModel WVM;
 
         public CataloguePage()
         {
             InitializeComponent();
 
-            WVM = new WindowViewModel();
-
-            DataContext = WVM;
-
-            WVM.Machines = new List<Machine>();
-            WVM.Machines.Add(new Machine("blabla", "bla", "dudu"));
-            WVM.Machines.Add(new Machine("blabla", "bla", "dudu"));
-            WVM.Machines.Add(new Machine("blabla", "bla", "dudu"));
-            WVM.Machines.Add(new Machine("blabla", "bla", "dudu"));
+            new CatalogueViewModel(this);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            ((MainWindow)(Application.Current.MainWindow)).SetPage(AppPage.AddMachine);
-        }
     }
 }

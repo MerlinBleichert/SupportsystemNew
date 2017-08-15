@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Supportsystem
 {
+    [Serializable]
     public class Machine
     {
         private string comnumber;
@@ -13,6 +14,7 @@ namespace Supportsystem
         private string location;
         private List<string> tickets;
 
+        public Machine() { }
 
         public Machine(string comnumber,string customer, string location)
         {

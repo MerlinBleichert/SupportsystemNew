@@ -8,11 +8,18 @@ using System.Threading.Tasks;
 
 namespace Supportsystem
 {
-    public class MachineCatalogueValueConverter : BaseValueConverter<MachineValueConverter>
+    public class MachineValueConverter : BaseValueConverter<MachineValueConverter>
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return ((MachineCatalogue) value).Machines;
+            if (value is Machine)
+            {
+                return ((Machine)value).ToString();
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
