@@ -13,7 +13,6 @@ namespace Supportsystem
         public OptionPage()
         {
             InitializeComponent();
-            new OptionPageViewModel(this);
         }
 
     }

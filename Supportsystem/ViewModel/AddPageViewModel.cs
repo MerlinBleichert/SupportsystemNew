@@ -4,7 +4,7 @@ using System.Windows.Input;
 
 namespace Supportsystem
 {
-    public class AddPageViewModel : BaseViewModel
+    public class AddPageViewModel : PageViewModelBase
     {
         public AddPageViewModel(IView page)
         {
@@ -39,7 +39,7 @@ namespace Supportsystem
             if(Comnumber != null && Location != null && Customer != null)
             {
                 CatalogueViewModel.Machines.AddMachine(new Machine(Comnumber, Location, Customer));
-                ((MainWindow)(Application.Current.MainWindow)).SetPage(AppPage.Catalogue);
+                SetPage(AppPage.Catalogue);
             }
 
 
@@ -48,7 +48,7 @@ namespace Supportsystem
 
         private void Cancel()
         {
-            ((MainWindow)(Application.Current.MainWindow)).SetPage(AppPage.Catalogue);
+            SetPage(AppPage.Catalogue);
         }
     }
 }

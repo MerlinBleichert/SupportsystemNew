@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace Supportsystem
 {
-    public class LoginPageViewModel : BaseViewModel
+    public class LoginPageViewModel : PageViewModelBase
     {
         public LoginPageViewModel(IView page)
         {
@@ -25,7 +25,7 @@ namespace Supportsystem
 
         private void ChangeToOptionPage()
         {
-            ((MainWindow)(Application.Current.MainWindow)).SetPage(AppPage.Options);
+            SetPage(AppPage.Options);
         }
 
     }

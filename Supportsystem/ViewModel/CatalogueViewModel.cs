@@ -10,7 +10,7 @@ using System.Xml.Serialization;
 
 namespace Supportsystem
 {
-    public class CatalogueViewModel : BaseViewModel
+    public class CatalogueViewModel : PageViewModelBase
     {
         public CatalogueViewModel(IView page)
         {
@@ -42,7 +42,7 @@ namespace Supportsystem
 
         private void ChangeToAddPage()
         {
-            ((MainWindow)(Application.Current.MainWindow)).SetPage(AppPage.AddMachine);
+            SetPage(AppPage.AddMachine);
         }
 
 

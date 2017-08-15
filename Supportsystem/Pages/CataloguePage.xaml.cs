@@ -24,8 +24,6 @@ namespace Supportsystem
         public CataloguePage()
         {
             InitializeComponent();
-
-            new CatalogueViewModel(this);
         }
 
     }

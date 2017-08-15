@@ -8,6 +8,6 @@
         Loaded="Window_Loaded"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:AppPageValueConverter}}"/>
+        <Frame x:Name="MainFrame" Content="{Binding CurrentPage}"/>
     </Grid>
 </Window>

@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace Supportsystem
 {
-    public class OptionPageViewModel : BaseViewModel
+    public class OptionPageViewModel : PageViewModelBase
     {
         public OptionPageViewModel(IView page)
         {
@@ -35,7 +35,7 @@ namespace Supportsystem
 
         private void ChangeToCataloguePage()
         {
-            ((MainWindow)(Application.Current.MainWindow)).SetPage(AppPage.Catalogue);
+            SetPage(AppPage.Catalogue);
         }
 
     }

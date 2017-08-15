@@ -64,6 +64,7 @@
     <Compile Include="DetailsWindow.xaml.cs">
       <DependentUpon>DetailsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Fault.cs" />
     <Compile Include="Entities\Machine.cs" />
     <Compile Include="Entities\MachineCatalogue.cs" />
     <Compile Include="Pages\AddPage.xaml.cs">
@@ -76,16 +77,17 @@
     <Compile Include="Pages\OptionPage.xaml.cs">
       <DependentUpon>OptionPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Properties\ValueConverter\AppPageValueConverter.cs" />
-    <Compile Include="Properties\ValueConverter\MachineCatalogueValueConverter.cs" />
-    <Compile Include="Properties\ValueConverter\MachineValueConverter.cs" />
-    <Compile Include="Properties\ValueConverter\BaseValueConverter.cs" />
+    <Compile Include="ValueConverter\AppPageValueConverter.cs" />
+    <Compile Include="ValueConverter\MachineCatalogueValueConverter.cs" />
+    <Compile Include="ValueConverter\MachineValueConverter.cs" />
+    <Compile Include="ValueConverter\BaseValueConverter.cs" />
     <Compile Include="ViewModel\CatalogueViewModel.cs" />
     <Compile Include="ViewModel\LoginPageViewModel.cs" />
     <Compile Include="ViewModel\OptionPageViewModel.cs" />
     <Compile Include="ViewModel\base\BaseViewModel.cs" />
     <Compile Include="ViewModel\AddPageViewModel.cs" />
     <Compile Include="ViewModel\base\RelayCommand.cs" />
+    <Compile Include="ViewModel\base\PageViewModelBase.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
     <Page Include="DetailsWindow.xaml">
       <SubType>Designer</SubType>

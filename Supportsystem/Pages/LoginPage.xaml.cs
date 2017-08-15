@@ -17,12 +17,6 @@ namespace Supportsystem
         public LoginPage()
         {
             InitializeComponent();
-            new LoginPageViewModel(this);
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
         }
     }
 }

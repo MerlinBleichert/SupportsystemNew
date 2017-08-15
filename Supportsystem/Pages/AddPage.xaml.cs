@@ -23,8 +23,6 @@ namespace Supportsystem
         public AddPage()
         {
             InitializeComponent();
-
-            new AddPageViewModel(this);
         }
 
     }

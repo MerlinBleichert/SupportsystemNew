@@ -21,25 +21,15 @@ namespace Supportsystem
     public partial class MainWindow : Window,IView
     {
 
-        private WindowViewModel WVM;
-
         public MainWindow()
         {
             InitializeComponent();
-
-            WVM = new WindowViewModel(this);
-
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            SetPage(AppPage.Login);
-
+            new WindowViewModel(this);
         }
 
-        public void SetPage(AppPage page)
-        {
-           WVM.CurrentPage = page;
-        }
     }
 }

@@ -8,18 +8,22 @@ using System.Windows.Input;
 
 namespace Supportsystem
 {
-    public class WindowViewModel : BaseViewModel
+    public class WindowViewModel : PageViewModelBase
     {
 
         public WindowViewModel(IView page)
         {
             page.DataContext = this;
+            ParentWindow = this;
+            SetPage(AppPage.Login);
         }
 
         public WindowViewModel() { }
 
 
-        public AppPage CurrentPage { get; set; }
+        public IView CurrentPage { get; set; }
+
+        
 
 
 
