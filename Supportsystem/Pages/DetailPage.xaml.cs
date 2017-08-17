@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Supportsystem
 {
     /// <summary>
-    /// Interaction logic for DetailsWindow.xaml
+    /// Interaction logic for DetailPage.xaml
     /// </summary>
-    public partial class DetailsWindow : Window
+    public partial class DetailPage : Page,IView
     {
-        public DetailsWindow()
+        public DetailPage()
         {
             InitializeComponent();
         }

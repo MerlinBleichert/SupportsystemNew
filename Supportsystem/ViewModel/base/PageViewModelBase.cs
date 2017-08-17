@@ -35,6 +35,11 @@ namespace Supportsystem
                     View = new AddPage();
                     PVMB = new AddPageViewModel(View);
                     break;
+                case AppPage.MachineDetail:
+                    View = new DetailPage();
+                    PVMB = new MachineDetailViewModel(View);
+                    break;
+
 
 
                 default:

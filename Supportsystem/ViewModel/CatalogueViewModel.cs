@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using System.Xml.Serialization;
 
 namespace Supportsystem
 {
@@ -14,21 +8,20 @@ namespace Supportsystem
     {
         public CatalogueViewModel(IView page)
         {
-            if(CatalogueViewModel.Machines == null) CatalogueViewModel.Machines = ReadWrite.Read("data");
+            Machines = ReadWrite.Read("data");
             page.DataContext = this;
 
             this.AddPageCommand = new RelayCommand(ChangeToAddPage);
             this.ExitCommand = new RelayCommand(Exit);
+            this.DetailsCommand = new RelayCommand(OpenDetailsWindow);
         }
-
- 
-
 
         public CatalogueViewModel() { }
 
 
-        public static MachineCatalogue Machines { get; set; }
+        public MachineCatalogue Machines { get; set; }
 
+        public ICommand DetailsCommand { get; set; }
         public ICommand AddPageCommand { get; set; }
         public ICommand ExitCommand { get; set; }
 
@@ -43,6 +36,11 @@ namespace Supportsystem
         private void ChangeToAddPage()
         {
             SetPage(AppPage.AddMachine);
+        }
+
+        private void OpenDetailsWindow()
+        {
+            SetPage(AppPage.MachineDetail);
         }
 
 

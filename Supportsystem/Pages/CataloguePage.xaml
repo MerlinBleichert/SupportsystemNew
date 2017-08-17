@@ -26,7 +26,7 @@
                     <DataGridTemplateColumn Header="Details">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="..."/>
+                                <Button Content="..." Command="{Binding DataContext.DetailsCommand,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

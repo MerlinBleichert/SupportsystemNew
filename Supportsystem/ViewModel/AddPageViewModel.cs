@@ -10,12 +10,15 @@ namespace Supportsystem
         {
             page.DataContext = this;
 
+            Machines = ReadWrite.Read("data");
+
+
             this.AddMachineCommand = new RelayCommand(AddMachine);
             this.CancelCommand = new RelayCommand(Cancel);
         }
 
 
-
+        public MachineCatalogue Machines { get; set; }
         public String Comnumber { get; set; }
         public String Location { get; set; }
         public String Customer { get; set; }
@@ -31,14 +34,15 @@ namespace Supportsystem
 
         private void AddMachine()
         {
-            if(CatalogueViewModel.Machines == null)
+            if(Machines == null)
             {
-                CatalogueViewModel.Machines = new MachineCatalogue();
+                Machines = new MachineCatalogue();
             }
 
             if(Comnumber != null && Location != null && Customer != null)
             {
-                CatalogueViewModel.Machines.AddMachine(new Machine(Comnumber, Location, Customer));
+                Machines.AddMachine(new Machine(Comnumber, Location, Customer));
+                ReadWrite.Write(Machines,"data");
                 SetPage(AppPage.Catalogue);
             }
 

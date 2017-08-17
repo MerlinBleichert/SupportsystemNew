@@ -12,7 +12,7 @@ namespace Supportsystem
         private string comnumber;
         private string customer;
         private string location;
-        private List<string> tickets;
+        private List<Fault> faults;
 
         public Machine() { }
 
@@ -21,18 +21,31 @@ namespace Supportsystem
             Comnumber = comnumber;
             Location = location;
             Customer = customer;
-            Tickets = null;
+            Faults = null;
         }
 
 
         public string Comnumber { get => comnumber; set => comnumber = value; }
         public string Location { get => location; set => location = value; }
         public string Customer { get => customer; set => customer = value; }
-        public List<string> Tickets { get => tickets; set => tickets = value; }
+        public List<Fault> Faults { get => faults; set => faults = value; }
 
         public override string ToString()
         {
             return Comnumber + " " + Location + " " + Customer + " " ;
+        }
+
+        public void AddFault(Fault fault)
+        {
+            if(Faults == null)
+            {
+                Faults = new List<Fault>();
+                Faults.Add(fault);
+            }
+            else
+            {
+                Faults.Add(fault);
+            }
         }
     }
 }

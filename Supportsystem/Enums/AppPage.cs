@@ -14,5 +14,7 @@ namespace Supportsystem
         Options = 1,
         Catalogue = 2,
         AddMachine = 3,
+        MachineDetail = 4,
+        FaultDetail = 5,
     }
 }
