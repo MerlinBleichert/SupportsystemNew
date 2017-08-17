@@ -13,6 +13,9 @@
         <DataTemplate DataType="{x:Type local:CatalogueViewModel}">
             <local:CataloguePage />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type local:MachineDetailViewModel}">
+            <local:DetailPage />
+        </DataTemplate>
         <DataTemplate DataType="{x:Type local:OptionPageViewModel}">
             <local:OptionPage />
         </DataTemplate>

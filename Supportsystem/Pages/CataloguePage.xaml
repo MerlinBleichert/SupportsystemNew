@@ -14,18 +14,18 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <DataGrid ItemsSource="{Binding Machines.Machines}"
+            <DataGrid ItemsSource="{Binding Machines.Machines, Converter={local:DictionaryValueConverter}}"
                       AutoGenerateColumns="False"
                       Grid.Row="0">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Comnumber" Binding="{Binding Comnumber}" Width="2*"/>
                     <DataGridTextColumn Header="Location" Binding="{Binding Location}" Width="*"/>
                     <DataGridTextColumn Header="Customer" Binding="{Binding Customer}" Width="*"/>
-                    <DataGridTextColumn Header="Tickets" Binding="{Binding Customer}" Width="*"/>
+                    <DataGridTextColumn Header="Störungen" Binding="{Binding NumberOfFaults}" Width="*"/>
                     <DataGridTemplateColumn Header="Details">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="..."/>
+                                <Button Content="..." Command="{Binding DataContext.DetailsCommand,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Path=Comnumber}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

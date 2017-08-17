@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Supportsystem
 {
@@ -10,9 +11,10 @@ namespace Supportsystem
     [Serializable]
     public class MachineCatalogue
     {
-        private List<Machine> _machines = new List<Machine>();
 
-        public List<Machine> Machines
+        private Dictionary<String,Machine> _machines = new Dictionary<string, Machine>();
+
+        public Dictionary<String,Machine> Machines
         {
             get { return _machines; }
         }
@@ -21,9 +23,7 @@ namespace Supportsystem
 
         public void AddMachine(Machine machine)
         {
-            if (_machines == null)
-                _machines = new List<Machine>();
-            _machines.Add(machine);
+            _machines.Add(machine.Comnumber,machine);
         }
     }
 }

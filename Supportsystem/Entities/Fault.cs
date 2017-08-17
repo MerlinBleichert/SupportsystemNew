@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Supportsystem.Entities
+namespace Supportsystem
 {
+    [Serializable]
     public class Fault
     {
         private Boolean _resolved = false;
         private string _name;
         private string _description;
+        private DateTime _date;
 
         public string Name
         {
@@ -28,10 +30,20 @@ namespace Supportsystem.Entities
             set { _resolved = value; }
         }
 
+        public DateTime Date
+        {
+            get { return _date; }
+            set { _date = value; }
+        }
+
         public Fault(String name, String description)
         {
             Name = name;
             Description = description;
         }
+
+        public Fault() { }
+
+
     }
 }

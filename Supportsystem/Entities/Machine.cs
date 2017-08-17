@@ -9,30 +9,35 @@ namespace Supportsystem
     [Serializable]
     public class Machine
     {
-        private string comnumber;
-        private string customer;
-        private string location;
-        private List<string> tickets;
+        private string _comnumber;
+        private string _customer;
+        private string _location;
+        private List<Fault> _faults;
 
         public string Comnumber
         {
-            get { return comnumber; }
-            set { comnumber = value; }
+            get { return _comnumber; }
+            set { _comnumber = value; }
         }
         public string Location
         {
-            get { return location; }
-            set { location = value; }
+            get { return _location; }
+            set { _location = value; }
         }
         public string Customer
         {
-            get { return customer; }
-            set { customer = value; }
+            get { return _customer; }
+            set { _customer = value; }
         }
-        public List<string> Tickets
+        public List<Fault> Faults
         {
-            get { return tickets; }
-            set { tickets = value; }
+            get { return _faults; }
+            set { _faults = value; }
+        }
+
+        public int NumberOfFaults
+        {
+            get { return Faults.Count(); }
         }
 
         public Machine() { }
@@ -42,12 +47,25 @@ namespace Supportsystem
             Comnumber = comnumber;
             Location = location;
             Customer = customer;
-            Tickets = null;
+            Faults = new List<Fault>();
         }
 
         public override string ToString()
         {
             return Comnumber + " " + Location + " " + Customer + " ";
+        }
+
+        public void AddFault(Fault fault)
+        {
+            if (Faults == null)
+            {
+                Faults = new List<Fault>();
+                Faults.Add(fault);
+            }
+            else
+            {
+                Faults.Add(fault);
+            }
         }
     }
 }

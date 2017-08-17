@@ -1,28 +1,26 @@
-﻿<Page x:Class="Supportsystem.DetailPage"
+﻿<UserControl x:Class="Supportsystem.DetailPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Supportsystem"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
-      Title="DetailPage">
+      d:DesignHeight="300" d:DesignWidth="300">
 
-    <Border Background="#bbbbbb">
+<Border Background="#bbbbbb">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             
             <StackPanel>
                 <TextBlock Text="Comnummer"/>
-                <TextBlock Text="{Binding Comnumber}"/>
+                <TextBox Text="{Binding Comnumber}" Width="100" HorizontalAlignment="Left" IsEnabled="False"/>
                 <TextBlock Text="Kunde"/>
-                <TextBlock Text="{Binding Customer}"/>
+                <TextBox Text="{Binding Customer}" Width="100" HorizontalAlignment="Left" IsEnabled="False"/>
                 <TextBlock Text="Standort"/>
-                <TextBlock Text="{Binding Location}"/>
+                <TextBox Text="{Binding Location}" Width="100" HorizontalAlignment="Left" IsEnabled="False"/>
 
                 <Grid Margin="0,10">
                     <Grid.ColumnDefinitions>
@@ -33,30 +31,43 @@
                     <Button Grid.Column="1" Content="Ändern" Margin="10,0,20,0"/>
                 </Grid>
 
-                <TextBlock Text="Tickets"/>
-                
-
             </StackPanel>
-
-            <DataGrid Grid.Row="1"
-                      ItemsSource="{Binding Faults}"
-                      AutoGenerateColumns="False">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="2*"/>
-                    <DataGridTextColumn Header="Data" Binding="{Binding Date}" Width="*"/>
-                    <DataGridTextColumn Header="Resolved" Binding="{Binding Resolved}" Width="*"/>
-                    <DataGridTemplateColumn Header="Details" Width="*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="..."/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Störungen" FontWeight="Bold" Margin="0,10,0,0"/>
+                <DataGrid Grid.Row="1"
+                          ItemsSource="{Binding Faults}"
+                          AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="2*"/>
+                        <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="*"/>
+                        <DataGridTextColumn Header="Behoben" Binding="{Binding Resolved}" Width="*"/>
+                        <DataGridTemplateColumn Header="Details" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="..."/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
                 
-            </DataGrid>
-            
-            
+                </DataGrid>
+                <Grid   Grid.Row="2"
+                        Margin="0,3,0,4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Störung Melden" Margin="10,0,20,0"/>
+                    <Button Grid.Column="1" Content="Zurück" Command="{Binding Back}" Margin="10,0,20,0"/>
+                </Grid>
+            </Grid>
+
+
         </Grid>
     </Border>    
-</Page>
+</UserControl>

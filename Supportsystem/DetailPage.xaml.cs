@@ -18,7 +18,7 @@ namespace Supportsystem
     /// <summary>
     /// Interaction logic for DetailPage.xaml
     /// </summary>
-    public partial class DetailPage : UserControl,IView
+    public partial class DetailPage : Page,IView
     {
         public DetailPage()
         {

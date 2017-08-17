@@ -61,6 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataLogic\HelperElement.cs" />
     <Compile Include="DataLogic\IReaderWriter.cs" />
     <Compile Include="DataLogic\MachineCatalogueXmlReaderWriter.cs" />
     <Compile Include="DetailsWindow.xaml.cs">
@@ -75,15 +76,21 @@
     <Compile Include="Pages\CataloguePage.xaml.cs">
       <DependentUpon>CataloguePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\DetailPage.xaml.cs">
+      <DependentUpon>DetailPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\IView.cs" />
     <Compile Include="Pages\OptionPage.xaml.cs">
       <DependentUpon>OptionPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValueConverter\BaseValueConverter.cs" />
+    <Compile Include="ValueConverter\DictionaryValueConverter.cs" />
     <Compile Include="ViewModel\base\IViewModel.cs" />
+    <Compile Include="ViewModel\base\RelayParameterizedCommand.cs" />
     <Compile Include="ViewModel\base\WindowViewModelBase.cs" />
     <Compile Include="ViewModel\CatalogueViewModel.cs" />
     <Compile Include="ViewModel\LoginPageViewModel.cs" />
+    <Compile Include="ViewModel\MachineDetailViewModel.cs" />
     <Compile Include="ViewModel\OptionPageViewModel.cs" />
     <Compile Include="ViewModel\base\ViewModelBase.cs" />
     <Compile Include="ViewModel\AddPageViewModel.cs" />
@@ -113,6 +120,10 @@
     <Page Include="Pages\CataloguePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\LoginPage.xaml">
       <SubType>Designer</SubType>
