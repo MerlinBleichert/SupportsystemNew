@@ -19,5 +19,8 @@
         <DataTemplate DataType="{x:Type local:OptionPageViewModel}">
             <local:OptionPage />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type local:AddTicketViewModel}">
+            <local:AddFaultPage />
+        </DataTemplate>
     </Application.Resources>
 </Application>

@@ -73,6 +73,9 @@
     <Compile Include="Pages\AddPage.xaml.cs">
       <DependentUpon>AddPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AddFaultPage.xaml.cs">
+      <DependentUpon>AddFaultPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CataloguePage.xaml.cs">
       <DependentUpon>CataloguePage.xaml</DependentUpon>
     </Compile>
@@ -85,6 +88,7 @@
     </Compile>
     <Compile Include="ValueConverter\BaseValueConverter.cs" />
     <Compile Include="ValueConverter\DictionaryValueConverter.cs" />
+    <Compile Include="ViewModel\AddTicketViewModel.cs" />
     <Compile Include="ViewModel\base\IViewModel.cs" />
     <Compile Include="ViewModel\base\RelayParameterizedCommand.cs" />
     <Compile Include="ViewModel\base\WindowViewModelBase.cs" />
@@ -114,6 +118,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\AddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddFaultPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

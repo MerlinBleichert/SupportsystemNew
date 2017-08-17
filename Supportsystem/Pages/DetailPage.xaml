@@ -62,7 +62,7 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Content="Störung Melden" Margin="10,0,20,0"/>
+                    <Button Content="Störung Melden" Command="{Binding AddFaultPage}" Margin="10,0,20,0"/>
                     <Button Grid.Column="1" Content="Zurück" Command="{Binding Back}" Margin="10,0,20,0"/>
                 </Grid>
             </Grid>

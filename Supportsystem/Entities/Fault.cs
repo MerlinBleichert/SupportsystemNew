@@ -10,14 +10,14 @@ namespace Supportsystem
     public class Fault
     {
         private Boolean _resolved = false;
-        private string _name;
+        private int _id;
         private string _description;
         private DateTime _date;
 
-        public string Name
+        public int ID
         {
-            get { return _name; }
-            set { _name = value; }
+            get { return _id; }
+            set { _id = value; }
         }
         public string Description
         {
@@ -36,9 +36,9 @@ namespace Supportsystem
             set { _date = value; }
         }
 
-        public Fault(String name, String description)
+        public Fault(int id, string description)
         {
-            Name = name;
+            ID = id;
             Description = description;
         }
 

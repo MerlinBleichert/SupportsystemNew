@@ -14,6 +14,7 @@ namespace Supportsystem
 
         public ICommand Back { get; set; }
         public ICommand GoToFaultDetailPage { get; set; }
+        public ICommand AddFaultPage { get; set; }
 
         public Machine Machine { get; set; }
 
@@ -33,6 +34,7 @@ namespace Supportsystem
 
             Back = new RelayCommand(ChangeToCataloguePage);
             GoToFaultDetailPage = new RelayCommand(ChangeToTicketPage);
+            AddFaultPage = new RelayCommand(ChangeToAddFaultPage);
 
             Machine = _cvm.Machines.Machines[comnumber];
 
@@ -44,7 +46,10 @@ namespace Supportsystem
 
         }
 
-
+        private void ChangeToAddFaultPage()
+        {
+            this.ParentWindow.Navigate(new AddTicketViewModel());
+        }
 
         private void ChangeToTicketPage()
         {
