@@ -18,7 +18,7 @@ namespace Supportsystem
     /// <summary>
     /// Interaction logic for CataloguePage.xaml
     /// </summary>
-    public partial class CataloguePage : Page,IView
+    public partial class CataloguePage : UserControl, IView
     {
 
         public CataloguePage()
