@@ -13,5 +13,10 @@ namespace Supportsystem
     /// </summary>
     public partial class App : Application
     {
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            MainWindowViewModel mainWindowVM = new MainWindowViewModel(new MainWindow());
+            mainWindowVM.View.Show();
+        }
     }
 }

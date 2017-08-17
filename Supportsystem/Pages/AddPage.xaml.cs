@@ -18,7 +18,7 @@ namespace Supportsystem
     /// <summary>
     /// Interaction logic for AddPage.xaml
     /// </summary>
-    public partial class AddPage : Page,IView
+    public partial class AddPage : UserControl, IView
     {
         public AddPage()
         {

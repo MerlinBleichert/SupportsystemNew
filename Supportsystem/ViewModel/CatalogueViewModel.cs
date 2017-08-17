@@ -1,46 +1,49 @@
-﻿using System;
+﻿using Supportsystem.DataLogic;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Xml.Serialization;
 
 namespace Supportsystem
 {
     public class CatalogueViewModel : PageViewModelBase
     {
-        public CatalogueViewModel(IView page)
-        {
-            Machines = ReadWrite.Read("data");
-            page.DataContext = this;
+        private IReaderWriter<MachineCatalogue> _rw = new MachineCatalogueXmlReaderWriter();
 
-            this.AddPageCommand = new RelayCommand(ChangeToAddPage);
-            this.ExitCommand = new RelayCommand(Exit);
-            this.DetailsCommand = new RelayCommand(OpenDetailsWindow);
-        }
+        public MachineCatalogue Machines { get; protected set; }
 
-        public CatalogueViewModel() { }
-
-
-        public MachineCatalogue Machines { get; set; }
-
-        public ICommand DetailsCommand { get; set; }
         public ICommand AddPageCommand { get; set; }
         public ICommand ExitCommand { get; set; }
+
+        public CatalogueViewModel()
+        {
+            if(Machines == null) 
+                Machines = _rw.Read("data");
+            if (Machines == null)
+                Machines = new MachineCatalogue();
+            this.AddPageCommand = new RelayCommand(ChangeToAddPage);
+            this.ExitCommand = new RelayCommand(Exit);
+        }
+
+
+
 
 
 
         private void Exit()
         {
-            ReadWrite.Write(Machines, "data");
+            _rw.Write(Machines, "data");
             Application.Current.Shutdown();
         }
 
         private void ChangeToAddPage()
         {
-            SetPage(AppPage.AddMachine);
-        }
-
-        private void OpenDetailsWindow()
-        {
-            SetPage(AppPage.MachineDetail);
+            this.ParentWindow.Navigate(new AddPageViewModel(this));
         }
 
 

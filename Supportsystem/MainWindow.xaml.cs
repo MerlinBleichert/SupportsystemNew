@@ -26,10 +26,5 @@ namespace Supportsystem
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            new WindowViewModel(this);
-        }
-
     }
 }

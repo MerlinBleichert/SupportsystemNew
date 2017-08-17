@@ -12,40 +12,42 @@ namespace Supportsystem
         private string comnumber;
         private string customer;
         private string location;
-        private List<Fault> faults;
+        private List<string> tickets;
+
+        public string Comnumber
+        {
+            get { return comnumber; }
+            set { comnumber = value; }
+        }
+        public string Location
+        {
+            get { return location; }
+            set { location = value; }
+        }
+        public string Customer
+        {
+            get { return customer; }
+            set { customer = value; }
+        }
+        public List<string> Tickets
+        {
+            get { return tickets; }
+            set { tickets = value; }
+        }
 
         public Machine() { }
 
-        public Machine(string comnumber,string customer, string location)
+        public Machine(string comnumber, string customer, string location)
         {
             Comnumber = comnumber;
             Location = location;
             Customer = customer;
-            Faults = null;
+            Tickets = null;
         }
-
-
-        public string Comnumber { get => comnumber; set => comnumber = value; }
-        public string Location { get => location; set => location = value; }
-        public string Customer { get => customer; set => customer = value; }
-        public List<Fault> Faults { get => faults; set => faults = value; }
 
         public override string ToString()
         {
-            return Comnumber + " " + Location + " " + Customer + " " ;
-        }
-
-        public void AddFault(Fault fault)
-        {
-            if(Faults == null)
-            {
-                Faults = new List<Fault>();
-                Faults.Add(fault);
-            }
-            else
-            {
-                Faults.Add(fault);
-            }
+            return Comnumber + " " + Location + " " + Customer + " ";
         }
     }
 }

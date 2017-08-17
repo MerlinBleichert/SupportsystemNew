@@ -10,22 +10,15 @@ namespace Supportsystem
 {
     public class OptionPageViewModel : PageViewModelBase
     {
-        public OptionPageViewModel(IView page)
-        {
-            page.DataContext = this;
+        public ICommand CataloguePageCommand { get; set; }
+        public ICommand TicketPageCommand { get; set; }
 
+        public OptionPageViewModel()
+        {
             this.CataloguePageCommand = new RelayCommand(ChangeToCataloguePage);
             this.TicketPageCommand = new RelayCommand(ChangeToTicketPage);
         }
 
-
-
-        public OptionPageViewModel() { }
-
-        //public MachineCatalogue Machines { get; set; }
-
-        public ICommand CataloguePageCommand { get; set; }
-        public ICommand TicketPageCommand { get; set; }
 
 
         private void ChangeToTicketPage()
@@ -35,7 +28,7 @@ namespace Supportsystem
 
         private void ChangeToCataloguePage()
         {
-            SetPage(AppPage.Catalogue);
+            this.ParentWindow.Navigate(typeof(CatalogueViewModel));
         }
 
     }

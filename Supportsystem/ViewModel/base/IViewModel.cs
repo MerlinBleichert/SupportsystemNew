@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Supportsystem
+namespace Supportsystem.ViewModel
 {
-    public interface IView
+    public class IViewModel
     {
-        //object DataContext { get; set; }
+       
     }
 }

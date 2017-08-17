@@ -10,24 +10,20 @@ namespace Supportsystem
     [Serializable]
     public class MachineCatalogue
     {
+        private List<Machine> _machines = new List<Machine>();
+
+        public List<Machine> Machines
+        {
+            get { return _machines; }
+        }
 
         public MachineCatalogue() { }
 
-        private List<Machine> machines;
-
-        public List<Machine> Machines { get => machines; set => machines = value; }
-
         public void AddMachine(Machine machine)
         {
-            if(Machines == null)
-            {
-                Machines = new List<Machine>();
-                Machines.Add(machine);
-            }
-            else
-            {
-                Machines.Add(machine);
-            }
+            if (_machines == null)
+                _machines = new List<Machine>();
+            _machines.Add(machine);
         }
     }
 }

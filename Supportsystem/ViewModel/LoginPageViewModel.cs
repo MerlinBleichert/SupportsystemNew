@@ -10,23 +10,16 @@ namespace Supportsystem
 {
     public class LoginPageViewModel : PageViewModelBase
     {
-        public LoginPageViewModel(IView page)
-        {
-            page.DataContext = this;
+        public ICommand OptionPageCommand { get; set; }
 
+        public LoginPageViewModel()
+        {
             this.OptionPageCommand = new RelayCommand(ChangeToOptionPage);
         }
 
-
-
-        public LoginPageViewModel() { }
-
-        public ICommand OptionPageCommand { get; set; }
-
         private void ChangeToOptionPage()
         {
-            SetPage(AppPage.Options);
+            this.ParentWindow.Navigate(typeof(OptionPageViewModel));
         }
-
     }
 }
