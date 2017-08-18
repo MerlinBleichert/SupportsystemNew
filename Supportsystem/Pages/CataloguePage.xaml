@@ -16,7 +16,8 @@
 
             <DataGrid ItemsSource="{Binding Machines.Machines, Converter={local:DictionaryValueConverter}}"
                       AutoGenerateColumns="False"
-                      Grid.Row="0">
+                      Grid.Row="0"
+                      IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Comnumber" Binding="{Binding Comnumber}" Width="2*"/>
                     <DataGridTextColumn Header="Location" Binding="{Binding Location}" Width="*"/>

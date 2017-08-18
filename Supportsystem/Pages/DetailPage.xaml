@@ -41,7 +41,8 @@
                 <TextBlock Text="Störungen" FontWeight="Bold" Margin="0,10,0,0"/>
                 <DataGrid Grid.Row="1"
                           ItemsSource="{Binding Faults}"
-                          AutoGenerateColumns="False">
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="*"/>
                         <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="*"/>
