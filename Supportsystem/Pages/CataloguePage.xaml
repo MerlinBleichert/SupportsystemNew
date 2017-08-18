@@ -36,7 +36,7 @@
             <Grid Grid.Row="1"
                   Margin="15">
                 <Button Content="Hinzufügen" Command="{Binding AddPageCommand}" HorizontalAlignment="Left" />
-                <Button Content="Beenden" Command="{Binding ExitCommand}" HorizontalAlignment="Right" Margin="150,0,0,0"/>
+                <Button Content="Zurück" Command="{Binding BackCommand}" HorizontalAlignment="Right" Margin="150,0,0,0"/>
             </Grid>
         </Grid>
     </Border>

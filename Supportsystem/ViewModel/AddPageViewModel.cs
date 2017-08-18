@@ -29,7 +29,8 @@ namespace Supportsystem
             if(Comnumber != null && Location != null && Customer != null)
             {
                 _cvm.Machines.AddMachine(new Machine(Comnumber, Location, Customer));
-                this.ParentWindow.Navigate(_cvm);
+                _cvm.Save();
+                Cancel();
             }
         }
 

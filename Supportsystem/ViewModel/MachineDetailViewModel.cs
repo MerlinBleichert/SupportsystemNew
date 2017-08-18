@@ -10,19 +10,24 @@ namespace Supportsystem
 {
     public class MachineDetailViewModel : PageViewModelBase
     {
-        CatalogueViewModel _cvm;
+        public CatalogueViewModel _cvm;
+
+        public Boolean IsTextBoxEnabled { get; set; }
+        public string ButtonName
+        {
+            get
+            {
+                return IsTextBoxEnabled ? "Speichern" : "Ändern"; 
+            }
+
+        }
 
         public ICommand Back { get; set; }
         public ICommand DetailsCommand { get; set; }
         public ICommand AddFaultPage { get; set; }
+        public ICommand EnableTextBox { get; set; }
 
         public Machine Machine { get; set; }
-
-        public string Comnumber { get; set; }
-        public string Location { get; set; }
-        public string Customer { get; set; }
-
-        public List<Fault> Faults { get; set; }
 
         public MachineDetailViewModel()
         {
@@ -35,16 +40,14 @@ namespace Supportsystem
             Back = new RelayCommand(ChangeToCataloguePage);
             DetailsCommand = new RelayParameterizedCommand(ChangeToFaultDetailPage);
             AddFaultPage = new RelayCommand(ChangeToAddFaultPage);
+            EnableTextBox = new RelayCommand(SwitchTextBoxEnabled);
+
+            IsTextBoxEnabled = false;
 
             Machine = _cvm.Machines.Machines[comnumber];
-
-            Comnumber = Machine.Comnumber;
-            Location = Machine.Location;
-            Customer = Machine.Customer;
-
-            Faults = Machine.Faults;
-
         }
+
+
 
         private void ChangeToAddFaultPage()
         {
@@ -59,6 +62,15 @@ namespace Supportsystem
         private void ChangeToCataloguePage()
         {
             this.ParentWindow.Navigate(_cvm);
+        }
+
+        private void SwitchTextBoxEnabled()
+        {
+            if (IsTextBoxEnabled)
+            {
+                _cvm.Save();
+            }
+            IsTextBoxEnabled = IsTextBoxEnabled ? false : true;
         }
 
     }

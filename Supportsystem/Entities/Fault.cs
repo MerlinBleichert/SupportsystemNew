@@ -52,6 +52,11 @@ namespace Supportsystem
 
         public Fault() { }
 
+        public void MarkResolved()
+        {
+            Resolved = true;
+        }
+
 
     }
 }

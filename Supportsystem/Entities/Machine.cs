@@ -59,8 +59,10 @@ namespace Supportsystem
         {
             if (Faults == null)
             {
-                Faults = new List<Fault>();
-                Faults.Add(fault);
+                Faults = new List<Fault>
+                {
+                    fault
+                };
             }
             else
             {

@@ -9,20 +9,12 @@ namespace Supportsystem
 {
     public class FaultDetailViewModel : PageViewModelBase
     {
-        public MachineDetailViewModel _mdvm;
-
-        public string Description { get; set; }
-        public string ID
-        {
-            get
-            {
-                return Fault.ID.ToString();
-            }
-        } 
+        public MachineDetailViewModel _mdvm; 
 
         public Fault Fault { get; set; }
 
         public ICommand Cancel { get; set; }
+        public ICommand ResolvedCommand { get; set; }
 
         public FaultDetailViewModel(Fault fault, MachineDetailViewModel mdvm)
         {
@@ -30,15 +22,22 @@ namespace Supportsystem
 
             Fault = fault;
 
-            Description = Fault.Description;
-
             Cancel = new RelayCommand(GoBackToMachineDetail);
+            ResolvedCommand = new RelayCommand(MarkAsResolved);
         }
 
 
         private void GoBackToMachineDetail()
         {
             this.ParentWindow.Navigate(_mdvm);
+        }
+
+        private void MarkAsResolved()
+        {
+            Fault.MarkResolved();
+            _mdvm._cvm.Save();
+            GoBackToMachineDetail();
+
         }
 
     }

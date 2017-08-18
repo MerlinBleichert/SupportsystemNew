@@ -70,6 +70,7 @@
     <Compile Include="Entities\Fault.cs" />
     <Compile Include="Entities\Machine.cs" />
     <Compile Include="Entities\MachineCatalogue.cs" />
+    <Compile Include="Entities\FaultOverview.cs" />
     <Compile Include="Pages\FaultDetailPage.xaml.cs">
       <DependentUpon>FaultDetailPage.xaml</DependentUpon>
     </Compile>
@@ -85,12 +86,16 @@
     <Compile Include="Pages\DetailPage.xaml.cs">
       <DependentUpon>DetailPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\FaultOverviewPage.xaml.cs">
+      <DependentUpon>FaultOverviewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\IView.cs" />
     <Compile Include="Pages\OptionPage.xaml.cs">
       <DependentUpon>OptionPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValueConverter\BaseValueConverter.cs" />
     <Compile Include="ValueConverter\DictionaryValueConverter.cs" />
+    <Compile Include="ViewModel\FaultOverviewViewModel.cs" />
     <Compile Include="ViewModel\FaultDetailViewModel.cs" />
     <Compile Include="ViewModel\AddFaultViewModel.cs" />
     <Compile Include="ViewModel\base\IViewModel.cs" />
@@ -140,6 +145,10 @@
     <Page Include="Pages\DetailPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\FaultOverviewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\LoginPage.xaml">
       <SubType>Designer</SubType>

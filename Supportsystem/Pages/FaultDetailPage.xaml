@@ -19,7 +19,7 @@
                     <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="ID:" TextAlignment="Center" HorizontalAlignment="Right" Margin="15" FontSize="20"/>
-                <TextBlock Grid.Column="1" Text="{Binding ID}" TextAlignment="Center" HorizontalAlignment="Left" Margin="15" FontSize="20"/>
+                <TextBlock Grid.Column="1" Text="{Binding Fault.ID}" TextAlignment="Center" HorizontalAlignment="Left" Margin="15" FontSize="20"/>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
@@ -28,15 +28,15 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="Beschreibung" FontSize="15" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
-                <TextBox Grid.Row="1" Text="{Binding Description}" IsEnabled="False"/>
+                <TextBox Grid.Row="1" Text="{Binding Fault.Description}" IsEnabled="False"/>
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Button Content="Senden" Command="{Binding AddFault}"/>
-                    <Button Grid.Column="1" Content="Abbrechen" Command="{Binding Cancel}"/>
+                    <Button Content="Erledigt" Command="{Binding ResolvedCommand}"/>
+                    <Button Grid.Column="1" Content="Zurück" Command="{Binding Cancel}"/>
                 </Grid>
             </Grid>
         </Grid>

@@ -32,7 +32,8 @@ namespace Supportsystem
         private void AddFaultToMachine()
         {
             _mdvm.Machine.AddFault(new Fault(Description));
-            this.ParentWindow.Navigate(_mdvm);
+            _mdvm._cvm.Save();
+            GoBackToMachineDetail();
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Supportsystem
         public MachineCatalogue Machines { get; protected set; }
 
         public ICommand AddPageCommand { get; set; }
-        public ICommand ExitCommand { get; set; }
+        public ICommand BackCommand { get; set; }
         public ICommand DetailsCommand { get; set; }
 
         public CatalogueViewModel()
@@ -28,16 +28,15 @@ namespace Supportsystem
             if (Machines == null)
                 Machines = new MachineCatalogue();
             this.AddPageCommand = new RelayCommand(ChangeToAddPage);
-            this.ExitCommand = new RelayCommand(Exit);
+            this.BackCommand = new RelayCommand(Back);
             this.DetailsCommand = new RelayParameterizedCommand(ChangeToDetailsPage);
         }
 
 
 
-        private void Exit()
+        private void Back()
         {
-            _rw.Write(Machines, "data");
-            Application.Current.Shutdown();
+            this.ParentWindow.Navigate(new OptionPageViewModel());
         }
 
         private void ChangeToAddPage()
@@ -48,6 +47,11 @@ namespace Supportsystem
         private void ChangeToDetailsPage(object parameter)
         {
             this.ParentWindow.Navigate(new MachineDetailViewModel(((string)parameter),this));
+        }
+
+        public void Save()
+        {
+            _rw.Write(Machines, "data");
         }
 
 
