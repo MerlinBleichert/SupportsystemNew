@@ -43,13 +43,13 @@
                           ItemsSource="{Binding Faults}"
                           AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="2*"/>
+                        <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="*"/>
                         <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="*"/>
                         <DataGridTextColumn Header="Behoben" Binding="{Binding Resolved}" Width="*"/>
                         <DataGridTemplateColumn Header="Details" Width="*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="..."/>
+                                    <Button Content="..." Command="{Binding DataContext.DetailsCommand,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Path=ID}"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

@@ -67,5 +67,17 @@ namespace Supportsystem
                 Faults.Add(fault);
             }
         }
+
+        public Fault FindFault(string id)
+        {
+            foreach(Fault fault in Faults)
+            {
+                if (fault.ID.ToString() == id)
+                {
+                    return fault;
+                }
+            }
+            return null;
+        }
     }
 }

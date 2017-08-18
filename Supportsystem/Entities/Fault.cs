@@ -9,10 +9,13 @@ namespace Supportsystem
     [Serializable]
     public class Fault
     {
+
         private Boolean _resolved = false;
         private int _id;
         private string _description;
         private DateTime _date;
+
+
 
         public int ID
         {
@@ -36,10 +39,15 @@ namespace Supportsystem
             set { _date = value; }
         }
 
-        public Fault(int id, string description)
+        
+
+        public Fault(string description)
         {
-            ID = id;
             Description = description;
+            Date = DateTime.Now;
+            // Die Zuweisung ist nur Übergangsweise, keine Sorge :P
+            ID = new Random().Next(9999999);
+
         }
 
         public Fault() { }

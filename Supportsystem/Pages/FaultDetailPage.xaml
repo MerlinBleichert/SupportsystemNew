@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Supportsystem.AddFaultPage"
+﻿<UserControl x:Class="Supportsystem.FaultDetailPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -13,7 +13,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="4*"/>
             </Grid.RowDefinitions>
-            <!-- <Grid>
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="3*"/>
@@ -21,7 +21,6 @@
                 <TextBlock Text="ID:" TextAlignment="Center" HorizontalAlignment="Right" Margin="15" FontSize="20"/>
                 <TextBlock Grid.Column="1" Text="{Binding ID}" TextAlignment="Center" HorizontalAlignment="Left" Margin="15" FontSize="20"/>
             </Grid>
-            -->
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -29,7 +28,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="Beschreibung" FontSize="15" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
-                <TextBox Grid.Row="1" Text="{Binding Description, Mode=OneWayToSource}"/>
+                <TextBox Grid.Row="1" Text="{Binding Description}" IsEnabled="False"/>
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>

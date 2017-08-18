@@ -18,9 +18,9 @@ namespace Supportsystem
     /// <summary>
     /// Interaction logic for AddFaultPage.xaml
     /// </summary>
-    public partial class AddFaultPage : UserControl, IView
+    public partial class FaultDetailPage : UserControl, IView
     {
-        public AddFaultPage()
+        public FaultDetailPage()
         {
             InitializeComponent();
         }

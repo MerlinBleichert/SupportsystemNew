@@ -13,7 +13,7 @@ namespace Supportsystem
         CatalogueViewModel _cvm;
 
         public ICommand Back { get; set; }
-        public ICommand GoToFaultDetailPage { get; set; }
+        public ICommand DetailsCommand { get; set; }
         public ICommand AddFaultPage { get; set; }
 
         public Machine Machine { get; set; }
@@ -33,7 +33,7 @@ namespace Supportsystem
             _cvm = cvm;
 
             Back = new RelayCommand(ChangeToCataloguePage);
-            GoToFaultDetailPage = new RelayCommand(ChangeToTicketPage);
+            DetailsCommand = new RelayParameterizedCommand(ChangeToFaultDetailPage);
             AddFaultPage = new RelayCommand(ChangeToAddFaultPage);
 
             Machine = _cvm.Machines.Machines[comnumber];
@@ -48,17 +48,17 @@ namespace Supportsystem
 
         private void ChangeToAddFaultPage()
         {
-            this.ParentWindow.Navigate(new AddTicketViewModel());
+            this.ParentWindow.Navigate(new AddFaultViewModel(this));
         }
 
-        private void ChangeToTicketPage()
+        private void ChangeToFaultDetailPage(object parameter)
         {
-            throw new NotImplementedException();
+            this.ParentWindow.Navigate(new FaultDetailViewModel(Machine.FindFault(parameter.ToString()),this));
         }
 
         private void ChangeToCataloguePage()
         {
-            this.ParentWindow.Navigate(typeof(CatalogueViewModel));
+            this.ParentWindow.Navigate(_cvm);
         }
 
     }
