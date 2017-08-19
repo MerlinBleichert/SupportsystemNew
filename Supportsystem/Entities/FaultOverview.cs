@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Supportsystem
 {
@@ -25,7 +26,7 @@ namespace Supportsystem
 
         public FaultOverview()
         {
-
+            _machines = _rw.Read("data");
         }
 
         public void ChangeList(int kind)
@@ -53,6 +54,9 @@ namespace Supportsystem
             {
                 _faults.AddRange(entry.Value.Faults);
             }
+            MessageBox.Show(_faults.ElementAt(0).Description);
+
+
         }
 
         private void GetUnresolvedFaults()
@@ -80,6 +84,18 @@ namespace Supportsystem
                     _faults.Remove(fault);
                 }
             }
+        }
+
+        public Fault FindFault(string id)
+        {
+            foreach (Fault fault in Faults)
+            {
+                if (fault.ID.ToString() == id)
+                {
+                    return fault;
+                }
+            }
+            return null;
         }
 
 

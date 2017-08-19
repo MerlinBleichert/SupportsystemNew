@@ -17,7 +17,7 @@
                     TextBlock.TextAlignment="Center">
 
                     <Button Content="Maschinenkatalog" Command="{Binding CataloguePageCommand}" Width="200" Margin="0,20"/>
-                    <Button Content="Offene Störungen" Width="200"/>
+                    <Button Content="Offene Störungen" Command="{Binding FaultOverviewPageCommand}" Width="200"/>
                     <Button Content="Admin" Width="200" Margin="0,20"/>
 
                 </StackPanel>

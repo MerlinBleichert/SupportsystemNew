@@ -11,24 +11,26 @@ namespace Supportsystem
     public class OptionPageViewModel : PageViewModelBase
     {
         public ICommand CataloguePageCommand { get; set; }
-        public ICommand TicketPageCommand { get; set; }
+        public ICommand FaultOverviewPageCommand { get; set; }
+
+        private CatalogueViewModel _cvm = new CatalogueViewModel();
 
         public OptionPageViewModel()
         {
             this.CataloguePageCommand = new RelayCommand(ChangeToCataloguePage);
-            this.TicketPageCommand = new RelayCommand(ChangeToTicketPage);
+            this.FaultOverviewPageCommand = new RelayCommand(ChangeToFaultOverviewPage);
         }
 
 
 
-        private void ChangeToTicketPage()
+        private void ChangeToFaultOverviewPage()
         {
-            throw new NotImplementedException();
+            this.ParentWindow.Navigate(new FaultOverviewViewModel(_cvm));
         }
 
         private void ChangeToCataloguePage()
         {
-            this.ParentWindow.Navigate(typeof(CatalogueViewModel));
+            this.ParentWindow.Navigate(_cvm);
         }
 
     }

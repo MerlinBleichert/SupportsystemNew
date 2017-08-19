@@ -13,12 +13,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Supportsystem.Pages
+namespace Supportsystem
 {
     /// <summary>
     /// Interaction logic for FaultOverviewPage.xaml
     /// </summary>
-    public partial class FaultOverviewPage : UserControl
+    public partial class FaultOverviewPage : UserControl,IView
     {
         public FaultOverviewPage()
         {
