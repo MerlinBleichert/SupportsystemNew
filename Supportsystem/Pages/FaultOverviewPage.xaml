@@ -13,11 +13,11 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <DataGrid ItemsSource="{Binding Faults.Faults}"
+            <DataGrid ItemsSource="{Binding Faults}"
                       AutoGenerateColumns="False"
                       IsReadOnly="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding Faults.ID}" Width="*"/>
+                    <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="*"/>
                     <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="*"/>
                     <DataGridTextColumn Header="Gelöst" Binding="{Binding Resolved}" Width="*"/>
                     <DataGridTemplateColumn Header="Machine" Width="*">

@@ -27,7 +27,7 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Content="Infos" Margin="10,0,20,0"/>
+                    
                     <Button Grid.Column="1" Content="{Binding ButtonName}" Command="{Binding EnableTextBox}" Margin="10,0,20,0"/>
                 </Grid>
 

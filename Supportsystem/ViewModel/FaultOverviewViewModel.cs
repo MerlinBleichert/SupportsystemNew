@@ -11,7 +11,8 @@ namespace Supportsystem
 {
     public class FaultOverviewViewModel : PageViewModelBase
     {
-        public FaultOverview Faults { get; set; }
+        public FaultOverview FaultOverview { get; set; }
+        public List<Fault> Faults { get; set; }
  
         public ICommand AllFaultsCommand { get; set; }
         public ICommand UnresolvedFaultsCommand { get; set; }
@@ -25,7 +26,7 @@ namespace Supportsystem
 
         public FaultOverviewViewModel(CatalogueViewModel cvm)
         {
-            Faults = new FaultOverview();
+            FaultOverview = new FaultOverview();
 
             _cvm = cvm;
 
@@ -38,7 +39,7 @@ namespace Supportsystem
 
         private void GoToFaultDetail(object parameter)
         {
-            this.ParentWindow.Navigate(new FaultDetailViewModel(Faults.FindFault(parameter.ToString()), new MachineDetailViewModel()));
+            this.ParentWindow.Navigate(new FaultDetailViewModel(FaultOverview.FindFault(parameter.ToString()),this));
         }
 
         private void Back()
@@ -48,20 +49,21 @@ namespace Supportsystem
 
         private void ShowResolvedFaults()
         {
-            Faults.ChangeList(FaultOverview.RESOLVED);
-            OnPropertyChanged("Faults");
+            FaultOverview.ChangeList(FaultOverview.RESOLVED);
+            Faults = FaultOverview.Faults;
         }
 
         private void ShowUnsresolvedFaults()
         {
-            Faults.ChangeList(FaultOverview.UNRESOLVED);
-            OnPropertyChanged("Faults");
+            FaultOverview.ChangeList(FaultOverview.UNRESOLVED);
+            Faults = FaultOverview.Faults;
 
         }
 
         private void ShowAllFaults()
         {
-            Faults.ChangeList(FaultOverview.ALL);
+            FaultOverview.ChangeList(FaultOverview.ALL);
+            Faults = FaultOverview.Faults;
         }
     }
 }

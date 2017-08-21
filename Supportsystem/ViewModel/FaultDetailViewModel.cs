@@ -9,35 +9,49 @@ namespace Supportsystem
 {
     public class FaultDetailViewModel : PageViewModelBase
     {
-        public MachineDetailViewModel _mdvm; 
+        private PageViewModelBase _previousViewModel;
+        private CatalogueViewModel _cvm = new CatalogueViewModel();
 
         public Fault Fault { get; set; }
 
         public ICommand Cancel { get; set; }
         public ICommand ResolvedCommand { get; set; }
+        public ICommand MachineDetailCommand { get; set; }
 
-        public FaultDetailViewModel(Fault fault, MachineDetailViewModel mdvm)
+        public FaultDetailViewModel(Fault fault, PageViewModelBase pvmb)
         {
-            _mdvm = mdvm;
+            _previousViewModel = pvmb;
 
             Fault = fault;
 
-            Cancel = new RelayCommand(GoBackToMachineDetail);
+            Cancel = new RelayCommand(GoToLastViewModel);
             ResolvedCommand = new RelayCommand(MarkAsResolved);
+            MachineDetailCommand = new RelayCommand(GoToMachineDetail);
         }
 
-
-        private void GoBackToMachineDetail()
+        private void GoToLastViewModel()
         {
-            this.ParentWindow.Navigate(_mdvm);
+            this.ParentWindow.Navigate(_previousViewModel);
         }
 
         private void MarkAsResolved()
         {
             Fault.MarkResolved();
-            _mdvm._cvm.Save();
-            GoBackToMachineDetail();
+            _cvm.Save();
+            GoToLastViewModel();
 
+        }
+
+        private void GoToMachineDetail()
+        {
+            if(_previousViewModel is MachineDetailViewModel)
+            {
+                GoToLastViewModel();
+            }
+            else
+            {
+                this.ParentWindow.Navigate(new MachineDetailViewModel(_cvm.Machines.FindMachineByTicketID(Fault.ID.ToString()).Comnumber, _cvm));
+            }
         }
 
     }

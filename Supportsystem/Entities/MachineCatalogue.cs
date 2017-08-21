@@ -25,5 +25,21 @@ namespace Supportsystem
         {
             _machines.Add(machine.Comnumber,machine);
         }
+
+        public Machine FindMachineByTicketID(string id)
+        {
+            foreach(KeyValuePair<string,Machine> entry in _machines)
+            {
+                foreach(Fault fault in entry.Value.Faults)
+                {
+                    if(fault.ID.ToString() == id)
+                    {
+                        return entry.Value;
+                    }
+                }
+            }
+
+            return null;
+        }
     }
 }

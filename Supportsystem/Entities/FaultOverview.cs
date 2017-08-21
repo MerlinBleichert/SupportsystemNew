@@ -15,7 +15,7 @@ namespace Supportsystem
 
         private MachineCatalogue _machines;
 
-        private List<Fault> _faults = new List<Fault>();
+        private List<Fault> _faults;
 
         public List<Fault> Faults { get => _faults; set => _faults = value; }
 
@@ -50,24 +50,23 @@ namespace Supportsystem
 
         private void GetAllFaults()
         {
+            _faults = new List<Fault>();
+
             foreach(KeyValuePair<string,Machine> entry in _machines.Machines)
             {
                 _faults.AddRange(entry.Value.Faults);
             }
-            MessageBox.Show(_faults.ElementAt(0).Description);
-
-
         }
 
         private void GetUnresolvedFaults()
         {
             GetAllFaults();
 
-            foreach(Fault fault in _faults)
+            for (int i = _faults.Count() - 1; i >= 0 ; i--)
             {
-                if (fault.Resolved)
+                if(_faults.ElementAt(i).Resolved)
                 {
-                    _faults.Remove(fault);
+                    _faults.RemoveAt(i);
                 }
             }
 
@@ -77,11 +76,11 @@ namespace Supportsystem
         {
             GetAllFaults();
 
-            foreach(Fault fault in _faults)
+            for (int i = _faults.Count() - 1; i >= 0; i--)
             {
-                if (!fault.Resolved)
+                if (!_faults.ElementAt(i).Resolved)
                 {
-                    _faults.Remove(fault);
+                    _faults.RemoveAt(i);
                 }
             }
         }
