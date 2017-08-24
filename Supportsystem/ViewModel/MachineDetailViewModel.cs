@@ -56,7 +56,7 @@ namespace Supportsystem
 
         private void ChangeToFaultDetailPage(object parameter)
         {
-            this.ParentWindow.Navigate(new FaultDetailViewModel(Machine.FindFault(parameter.ToString()),this));
+            this.ParentWindow.Navigate(new FaultDetailViewModel(Machine.FindFault(parameter.ToString()),this,_cvm));
         }
 
         private void ChangeToCataloguePage()

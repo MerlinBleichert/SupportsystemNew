@@ -26,20 +26,24 @@ namespace Supportsystem
 
         public FaultOverviewViewModel(CatalogueViewModel cvm)
         {
-            FaultOverview = new FaultOverview();
+            FaultOverview = new FaultOverview(cvm.Machines);
 
             _cvm = cvm;
 
             this.AllFaultsCommand = new RelayCommand(ShowAllFaults);
-            this.UnresolvedFaultsCommand = new RelayCommand(ShowUnsresolvedFaults);
+            this.UnresolvedFaultsCommand = new RelayCommand(ShowUnresolvedFaults);
             this.ResolvedFaultsCommand = new RelayCommand(ShowResolvedFaults);
             this.BackCommand = new RelayCommand(Back);
             this.MachineCommand = new RelayParameterizedCommand(GoToFaultDetail);
+
+            ShowUnresolvedFaults();
         }
 
         private void GoToFaultDetail(object parameter)
         {
-            this.ParentWindow.Navigate(new FaultDetailViewModel(FaultOverview.FindFault(parameter.ToString()),this));
+            int faultID = -1;
+            if (Int32.TryParse(parameter.ToString(), out faultID))
+                this.ParentWindow.Navigate(new FaultDetailViewModel(FaultOverview.FindFault(faultID), this,_cvm));
         }
 
         private void Back()
@@ -49,21 +53,17 @@ namespace Supportsystem
 
         private void ShowResolvedFaults()
         {
-            FaultOverview.ChangeList(FaultOverview.RESOLVED);
-            Faults = FaultOverview.Faults;
+            Faults = FaultOverview.GetResolvedFaults();
         }
 
-        private void ShowUnsresolvedFaults()
+        private void ShowUnresolvedFaults()
         {
-            FaultOverview.ChangeList(FaultOverview.UNRESOLVED);
-            Faults = FaultOverview.Faults;
-
+            Faults = FaultOverview.GetUnresolvedFaults();
         }
 
         private void ShowAllFaults()
         {
-            FaultOverview.ChangeList(FaultOverview.ALL);
-            Faults = FaultOverview.Faults;
+            Faults = FaultOverview.GetAllFaults();
         }
     }
 }

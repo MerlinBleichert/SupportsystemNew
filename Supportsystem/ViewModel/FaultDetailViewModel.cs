@@ -10,7 +10,7 @@ namespace Supportsystem
     public class FaultDetailViewModel : PageViewModelBase
     {
         private PageViewModelBase _previousViewModel;
-        private CatalogueViewModel _cvm = new CatalogueViewModel();
+        private CatalogueViewModel _cvm;
 
         public Fault Fault { get; set; }
 
@@ -18,9 +18,10 @@ namespace Supportsystem
         public ICommand ResolvedCommand { get; set; }
         public ICommand MachineDetailCommand { get; set; }
 
-        public FaultDetailViewModel(Fault fault, PageViewModelBase pvmb)
+        public FaultDetailViewModel(Fault fault, PageViewModelBase pvmb, CatalogueViewModel cvm)
         {
             _previousViewModel = pvmb;
+            _cvm = cvm;
 
             Fault = fault;
 

@@ -70,7 +70,7 @@
     <Compile Include="Entities\Fault.cs" />
     <Compile Include="Entities\Machine.cs" />
     <Compile Include="Entities\MachineCatalogue.cs" />
-    <Compile Include="Entities\FaultOverview.cs" />
+    <Compile Include="Entities\FaultOverviewModel.cs" />
     <Compile Include="Pages\FaultDetailPage.xaml.cs">
       <DependentUpon>FaultDetailPage.xaml</DependentUpon>
     </Compile>
